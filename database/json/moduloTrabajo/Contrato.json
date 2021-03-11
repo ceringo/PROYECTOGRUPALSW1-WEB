@@ -1,0 +1,89 @@
+
+{
+    "fields": [
+        {
+            "name": "fecha_inicio",
+            "type": "date"
+        },
+        {
+            "name": "fecha_fin",
+            "type": "date"
+        },
+		{
+            "name": "latitud_empleado",
+            "type": "string"
+        },
+		{
+            "name": "longitud_empleado",
+            "type": "string"
+        },
+		{
+            "name": "calificacion_empleado",
+            "type": "integer#unsigned"
+        },
+		{
+            "name": "calificacion_empleador",
+            "type": "integer#unsigned"
+        },
+		{
+            "name": "estado_contrato",
+            "type": "string"
+        },
+		{
+            "name": "estado",
+            "type": "string"
+        },
+		{
+            "name": "id_solicitud_contrato",
+            "type": "integer#unsigned"
+        },
+		{
+            "name": "id_servicio",
+            "type": "integer#unsigned"
+        }
+    ],
+	"foreign_keys": [
+        {
+            "column": "id_solicitud_contrato",
+            "references": "id",
+            "on": "solicitud_contratos",
+            "onDelete": "cascade"
+        },
+		{
+            "column": "id_servicio",
+            "references": "id",
+            "on": "servicios",
+            "onDelete": "cascade"
+        }
+    ],
+	"relationships": [
+        {
+            "name": "solicitud_contrato",
+            "type": "belongsTo",
+            "class": "App\\SolicitudContrato"
+        },
+		{
+            "name": "servicio",
+            "type": "belongsTo",
+            "class": "App\\Servicio"
+        }
+    ],
+
+    "validations": [
+        {
+            "field": "latitud_empleado",
+            "rules": "required"
+        },{
+            "field": "longitud_empleador",
+            "rules": "required"
+        },
+        {
+            "field": "estado_contrato",
+            "rules": "required"
+        },
+        {
+            "field": "estado",
+            "rules": "required"
+        }
+    ]
+}

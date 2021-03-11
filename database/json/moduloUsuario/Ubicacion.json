@@ -1,0 +1,41 @@
+{
+    "fields": [
+		{
+            "name": "latitud",
+            "type": "string"
+        },
+		{
+            "name": "longitud",
+            "type": "string"
+        },
+		{
+            "name": "id_usuario_movil",
+            "type": "integer#unsigned"
+        }
+    ],
+    "validations": [
+        {
+            "field": "latitud",
+            "rules": "required"
+        },
+		{
+            "field": "longitud",
+            "rules": "required"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "id_usuario_movil",
+            "references": "id",
+            "on": "usuario_movils",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "usuariomovil",
+            "type": "belongsTo",
+            "class": "App\\UsuarioMovil"
+        }
+    ]
+}

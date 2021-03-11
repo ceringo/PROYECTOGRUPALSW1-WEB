@@ -1,0 +1,89 @@
+{
+    "fields": [
+		{
+            "name": "foto",
+            "type": "string"
+        },
+		{
+            "name": "curriculum",
+            "type": "string"
+        },
+		{
+            "name": "antecedentes_penales",
+            "type": "string"
+        },
+		{
+            "name": "foto_ci",
+            "type": "string"
+        },
+		{
+            "name": "fecha_solicitud",
+            "type": "date"
+        },
+		{
+            "name": "latitud",
+            "type": "string"
+        },
+		{
+            "name": "longitud",
+            "type": "string"
+        },
+		{
+            "name": "estado",
+            "type": "string"
+        },
+		{
+            "name": "id_servicio",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "id_servicio",
+            "references": "id",
+            "on": "servicios",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "servicio",
+            "type": "belongsTo",
+            "class": "App\\Servicio"
+        }
+    ],
+    "validations": [
+        {
+            "field": "foto",
+            "rules": "required"
+        },
+        {
+            "field": "curriculum",
+            "rules": "required"
+        },
+        {
+            "field": "antecedentes_penales",
+            "rules": "required"
+        },
+        {
+            "field": "curriculum",
+            "rules": "required"  
+        },
+        {
+            "field": "foto_ci",
+            "rules": "required"  
+        },
+        {
+            "field": "latitud",
+            "rules": "required"  
+        },
+        {
+            "field": "longitud",
+            "rules": "required"  
+        },
+        {
+            "field": "estado",
+            "rules": "required"  
+        }
+    ]
+}

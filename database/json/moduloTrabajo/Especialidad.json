@@ -1,0 +1,41 @@
+{
+    "fields": [
+		{
+            "name": "nombre",
+            "type": "string"
+        },
+		{
+            "name": "descripcion",
+            "type": "string"
+        },
+		{
+            "name": "id_area",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "id_area",
+            "references": "id",
+            "on": "areas",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "area",
+            "type": "belongsTo",
+            "class": "App\\Area"
+        }
+    ],
+    "validations": [
+        {
+            "field": "nombre",
+            "rules": "required"
+        },
+        {
+            "field": "descripcion",
+            "rules": "required"
+        }
+    ]
+}

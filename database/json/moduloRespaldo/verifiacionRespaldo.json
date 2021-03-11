@@ -1,0 +1,56 @@
+{
+    "fields": [
+        {
+            "name": "descripcion",
+            "type": "string"
+        },
+        {
+            "name": "respuesta_solicitud",
+            "type": "string"
+        },
+		{
+            "name": "id_solicitud_respaldo",
+            "type": "integer#unsigned"
+        },
+		{
+            "name": "id_usuario_web",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "id_solicitud_respaldo",
+            "references": "id",
+            "on": "solicitud_respaldos",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "id_usuario_web",
+            "references": "id",
+            "on": "users",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "solicitud_respaldo",
+            "type": "belongsTo",
+            "class": "App\\SolicitudRespaldo"
+        },
+        {
+            "name": "solicitud_respaldo",
+            "type": "belongsTo",
+            "class": "App\\SolicitudRespaldo"
+        }
+    ],
+    "validations": [
+        {
+            "field": "certificado",
+            "rules": "required"
+        },
+        {
+            "field": "titulo",
+            "rules": "required"
+        }
+    ]
+}

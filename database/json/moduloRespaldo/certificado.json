@@ -1,0 +1,41 @@
+{
+    "fields": [
+        {
+            "name": "certificado",
+            "type": "string"
+        },
+        {
+            "name": "titulo",
+            "type": "string"
+        },
+		{
+            "name": "id_solicitud_respaldo",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "id_solicitud_respaldo",
+            "references": "id",
+            "on": "solicitud_respaldos",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "solicitud_respaldo",
+            "type": "belongsTo",
+            "class": "App\\SolicitudRespaldo"
+        }
+    ],
+    "validations": [
+        {
+            "field": "certificado",
+            "rules": "required"
+        },
+        {
+            "field": "titulo",
+            "rules": "required"
+        }
+    ]
+}

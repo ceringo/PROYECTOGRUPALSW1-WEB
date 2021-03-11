@@ -1,0 +1,41 @@
+{
+    "fields": [
+		{
+            "name": "calificacion_empleado",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "estado_respaldo",
+            "type": "char"
+        },
+        {
+            "name": "estado",
+            "type": "string"
+        },
+		{
+            "name": "id_usuario_movil",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "id_usuario_movil",
+            "references": "id",
+            "on": "usuario_movils",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "usuario_movil",
+            "type": "belongsTo",
+            "class": "App\\Usuario_Movil"
+        }
+    ],
+    "validations": [
+        {
+            "field": "estado",
+            "rules": "required"
+        }
+    ]
+}

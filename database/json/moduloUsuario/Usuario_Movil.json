@@ -1,0 +1,73 @@
+{
+    "fields": [
+        {
+            "name": "foto",
+            "type": "string"
+        },
+        {
+            "name": "nombre",
+            "type": "string"
+        },
+		{
+            "name": "apellidos",
+            "type": "string"
+        },
+		{
+            "name": "telefono",
+            "type": "string "
+        },
+        {
+            "name": "sexo",
+            "type": "select",
+            "options": {
+                "masculino": "Masculino",
+                "femenino": "Femenino"
+            }
+        },
+		{
+            "name": "fecha_nacimiento",
+            "type": "date"
+        },
+		{
+            "name": "fecha_registro",
+            "type": "date"
+        },
+		{
+            "name": "estado",
+            "type": "char"
+        },
+		{
+            "name": "id_login",
+            "type": "integer#unsigned"
+        }
+    ],
+    "validations": [
+        {
+            "field": "nombre",
+            "rules": "required"
+        },
+		{
+            "field": "apellidos",
+            "rules": "required"
+        },
+		{
+            "field": "telefono",
+            "rules": "required"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "id_login",
+            "references": "id",
+            "on": "logins",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "login",
+            "type": "belongsTo",
+            "class": "App\\Login"
+        }
+    ]
+}

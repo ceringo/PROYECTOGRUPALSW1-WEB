@@ -1,0 +1,71 @@
+{
+    "fields": [
+		{
+            "name": "latitud_empleador",
+            "type": "string"
+        },
+		{
+            "name": "longitud_empleador",
+            "type": "string"
+        },
+		{
+            "name": "fecha",
+            "type": "date"
+        },
+		{
+            "name": "estado_solicitud",
+            "type": "string"
+        },
+		{
+            "name": "estado",
+            "type": "string"
+        },
+		{
+            "name": "id_empleador",
+            "type": "integer#unsigned"
+        },
+		{
+            "name": "id_servicio",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "id_empleador",
+            "references": "id",
+            "on": "empleadors",
+            "onDelete": "cascade"
+        },
+		{
+            "column": "id_servicio",
+            "references": "id",
+            "on": "servicios",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "empleador",
+            "type": "belongsTo",
+            "class": "App\\Empleador"
+        },
+		{
+            "name": "servicio",
+            "type": "belongsTo",
+            "class": "App\\Servicio"
+        }
+    ],
+    "validations": [
+        {
+            "field": "latitud_empleador",
+            "rules": "required"
+        },{
+            "field": "longiitud_empleador",
+            "rules": "required"
+        },{
+            "field": "estado",
+            "rules": "required"
+        }
+
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "fields": [
+		{
+            "name": "descripcion",
+            "type": "string"
+        },
+		{
+            "name": "precio_estandar",
+            "type": "float"
+        },
+		{
+            "name": "estado_servicio",
+            "type": "char"
+        },
+		{
+            "name": "estado",
+            "type": "char"
+        },
+		{
+            "name": "id_especialidad",
+            "type": "integer#unsigned"
+        },
+		{
+            "name": "id_empleado",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "id_especialidad",
+            "references": "id",
+            "on": "especialidads",
+            "onDelete": "cascade"
+        },
+		{
+            "column": "id_empleado",
+            "references": "id",
+            "on": "empleados",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "especialidad",
+            "type": "belongsTo",
+            "class": "App\\Especialidad"
+        },
+		{
+            "name": "empleado",
+            "type": "belongsTo",
+            "class": "App\\Empleado"
+        }
+    ],
+    "validations": [
+        {
+            "field": "descripcion",
+            "rules": "required"
+        }
+    ]
+}

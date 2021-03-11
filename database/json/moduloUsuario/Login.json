@@ -1,0 +1,12 @@
+{
+    "fields": [
+		{
+            "name": "correo",
+            "type": "email"
+        },
+        {
+            "name": "pasword",
+            "type": "password"
+        }
+    ]
+}
